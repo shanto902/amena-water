@@ -69,7 +69,7 @@ export function BatteryGuide() {
             {/* Chemical Formula Card */}
             <div className="newspaper-card p-6 sm:p-8 bg-[#fdfbf7] text-center">
               <span className="text-[10px] font-mono tracking-widest text-stone-600 uppercase block mb-2">
-                ELECTROCHEMICAL REVERSIBLE EQUATION
+                {locale === "bn" ? "তড়িৎ-রাসায়নিক উভমুখী বিক্রিয়া" : "ELECTROCHEMICAL REVERSIBLE EQUATION"}
               </span>
               <div className="inline-block p-4 sm:p-6 border-2 border-stone-900 bg-[#f8f5ee] my-3 shadow-[2px_2px_0px_#1c1917]">
                 <code className="text-xl sm:text-3xl font-mono font-black text-stone-900 tracking-wider">
@@ -121,7 +121,7 @@ export function BatteryGuide() {
             <div className="newspaper-card p-6 bg-[#fdfbf7] flex flex-col justify-between border-t-4 border-stone-900">
               <div>
                 <span className="text-[10px] font-mono font-bold text-accent uppercase block mb-1">
-                  [ NEGATIVE TERMINAL ]
+                  {locale === "bn" ? "[ নেগেটিভ টার্মিনাল (অ্যানোড) ]" : "[ NEGATIVE TERMINAL ]"}
                 </span>
                 <h3 className="text-lg font-bold font-newspaper text-stone-900 mb-3">
                   {t.batteryGuide.anodeTitle}
@@ -131,7 +131,7 @@ export function BatteryGuide() {
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-stone-300 text-xs font-mono text-stone-600">
-                ELEMENT: SPONGY LEAD (Pb)
+                {locale === "bn" ? "উপাদান: স্পঞ্জি লেড (Pb)" : "ELEMENT: SPONGY LEAD (Pb)"}
               </div>
             </div>
 
@@ -139,7 +139,7 @@ export function BatteryGuide() {
             <div className="newspaper-card p-6 bg-[#fdfbf7] flex flex-col justify-between border-t-4 border-stone-900">
               <div>
                 <span className="text-[10px] font-mono font-bold text-accent uppercase block mb-1">
-                  [ POSITIVE TERMINAL ]
+                  {locale === "bn" ? "[ পজিটিভ টার্মিনাল (ক্যাথোড) ]" : "[ POSITIVE TERMINAL ]"}
                 </span>
                 <h3 className="text-lg font-bold font-newspaper text-stone-900 mb-3">
                   {t.batteryGuide.cathodeTitle}
@@ -149,7 +149,7 @@ export function BatteryGuide() {
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-stone-300 text-xs font-mono text-stone-600">
-                ELEMENT: LEAD DIOXIDE (PbO₂)
+                {locale === "bn" ? "উপাদান: লেড ডাই-অক্সাইড (PbO₂)" : "ELEMENT: LEAD DIOXIDE (PbO₂)"}
               </div>
             </div>
 
@@ -157,7 +157,7 @@ export function BatteryGuide() {
             <div className="newspaper-card p-6 bg-[#fdfbf7] flex flex-col justify-between border-t-4 border-stone-900">
               <div>
                 <span className="text-[10px] font-mono font-bold text-accent uppercase block mb-1">
-                  [ 3:1 SOLUTION ]
+                  {locale === "bn" ? "[ ৩:১ আনুপাতিক দ্রবণ ]" : "[ 3:1 SOLUTION ]"}
                 </span>
                 <h3 className="text-lg font-bold font-newspaper text-stone-900 mb-3">
                   {t.batteryGuide.electrolyteTitle}
@@ -167,7 +167,7 @@ export function BatteryGuide() {
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-stone-300 text-xs font-mono text-stone-600">
-                FORMULA: 3H₂O + H₂SO₄
+                {locale === "bn" ? "সংকেত: 3H₂O + H₂SO₄" : "FORMULA: 3H₂O + H₂SO₄"}
               </div>
             </div>
           </div>
@@ -179,7 +179,7 @@ export function BatteryGuide() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8 space-y-4">
                 <div className="inline-block border border-stone-900 bg-[#f8f5ee] px-2.5 py-0.5 text-xs font-mono font-bold uppercase">
-                  THERMAL REGULATION DISPATCH
+                  {locale === "bn" ? "ইঞ্জিন ও রেডিয়েটর পরিচর্যা নির্দেশিকা" : "THERMAL REGULATION DISPATCH"}
                 </div>
                 <h3 className="text-2xl font-bold font-newspaper text-stone-900">
                   {t.batteryGuide.radiatorTitle}
@@ -188,17 +188,24 @@ export function BatteryGuide() {
                   {t.batteryGuide.radiatorDesc}
                 </p>
                 <div className="p-4 border-l-4 border-stone-900 bg-[#f8f5ee] text-xs font-newspaper text-stone-900">
-                  💡 <strong>প্রকৌশলী পরামর্শ:</strong> গাড়ির রেডিয়েটরে কখনোই সাধারণ পানি ব্যবহার করবেন না। আমেনা™ ডিমিনারেলাইজড পানি রেডিয়েটরের ভেতরে কোনো ময়লা ও খনিজের স্তর জমতে দেয় না, ফলে ইঞ্জিন ওভারহিটিং রোধ হয়।
+                  💡 <strong>{locale === "bn" ? "প্রকৌশলী পরামর্শ:" : "Engineering Advice:"}</strong>{" "}
+                  {locale === "bn"
+                    ? "গাড়ির রেডিয়েটরে কখনোই সাধারণ পানি ব্যবহার করবেন না। আমেনা™ ডিমিনারেলাইজড পানি রেডিয়েটরের ভেতরে কোনো ময়লা ও খনিজের স্তর জমতে দেয় না, ফলে ইঞ্জিন ওভারহিটিং রোধ হয়।"
+                    : "Never use tap or mineral water in vehicle radiators. amena™ DM water prevents scale, corrosion and sediment buildup, ensuring optimal engine cooling."}
                 </div>
               </div>
 
               <div className="lg:col-span-4 p-6 border-2 border-stone-900 bg-[#f8f5ee] text-center shadow-[3px_3px_0px_#1c1917]">
-                <div className="text-5xl font-black font-newspaper text-stone-900 mb-1">০%</div>
+                <div className="text-5xl font-black font-newspaper text-stone-900 mb-1">
+                  {locale === "bn" ? "০%" : "0%"}
+                </div>
                 <span className="text-xs font-mono uppercase font-bold text-accent block mb-1">
-                  স্কেল ও ব্লকেজ ঝুঁকি
+                  {locale === "bn" ? "স্কেল ও ব্লকেজ ঝুঁকি" : "SCALE & BLOCKAGE RISK"}
                 </span>
                 <p className="text-xs font-newspaper text-stone-600">
-                  জিরো মিনারেল ও শতভাগ বাষ্পীভবন ভারসাম্য।
+                  {locale === "bn"
+                    ? "জিরো মিনারেল ও শতভাগ বাষ্পীভবন ভারসাম্য।"
+                    : "Zero dissolved minerals and 100% thermal vaporization balance."}
                 </p>
               </div>
             </div>

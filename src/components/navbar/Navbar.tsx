@@ -35,32 +35,45 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             <span>VOL. XXVI NO. 102</span>
             <span>•</span>
-            <button
-              onClick={toggleLocale}
+            <a
+              href={locale === "bn" ? "/en" : "/bn"}
+              onClick={(e) => {
+                e.preventDefault();
+                toggleLocale();
+              }}
               className="px-2 py-0.5 border border-stone-800 bg-[#fdfbf7] text-stone-900 font-bold hover:bg-stone-900 hover:text-[#f8f5ee] transition-colors flex items-center gap-1 shadow-[1px_1px_0px_#1c1917]"
-              title={locale === "bn" ? "Switch to English" : "বাংলায় দেখুন"}
+              title={locale === "bn" ? "Switch to English (/en)" : "বাংলায় দেখুন (/bn)"}
             >
               <Globe className="w-3 h-3" />
               <span>{t.nav.switchLang}</span>
-            </button>
+            </a>
           </div>
         </div>
 
-        {/* Vintage Main Masthead */}
+        {/* Main Newspaper Masthead (===> amena™ <=== Full Margin Banner) */}
         <div className="py-6 sm:py-8 text-center border-b border-stone-400">
-          <div className="inline-block mb-1">
-            <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-stone-600 block">
-              {locale === "bn" ? "বুয়েট পরীক্ষিত • ৭ স্তরের নিউক্লিয়ার মিডিয়া পরিশোধন" : "BUET CERTIFIED • 7-STAGE NUCLEAR MEDIA"}
-            </span>
+          <div className="flex items-center justify-between gap-2.5 sm:gap-4 md:gap-6 lg:gap-8 w-full">
+            {/* Left Chevron Band ===> (Expands to Left Margin) */}
+            <div
+              className="h-4 sm:h-6 md:h-8 lg:h-10 flex-1 bg-accent amena-banner-left"
+              aria-hidden="true"
+            />
+
+            {/* Brand Title */}
+            <a href={locale === "en" ? "/en" : "/"} className="inline-block group shrink-0">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight font-newspaper text-stone-900 leading-none">
+                amena<span className="text-accent text-2xl sm:text-4xl md:text-5xl align-super ml-0.5">™</span>
+              </h1>
+            </a>
+
+            {/* Right Chevron Band <=== (Expands to Right Margin) */}
+            <div
+              className="h-4 sm:h-6 md:h-8 lg:h-10 flex-1 bg-accent amena-banner-right"
+              aria-hidden="true"
+            />
           </div>
 
-          <a href="#" className="inline-block group">
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight font-newspaper text-stone-900 leading-none">
-              amena<span className="text-accent text-3xl sm:text-5xl align-super">™</span>
-            </h1>
-          </a>
-
-          <p className="mt-2 text-xs sm:text-sm font-newspaper italic text-stone-700 max-w-xl mx-auto">
+          <p className="mt-3 text-xs sm:text-sm font-newspaper italic text-stone-700 max-w-xl mx-auto px-4">
             {locale === "bn"
               ? "দেশের কোটি কোটি ব্যাটারি ও শিল্পযন্ত্রের আয়ু রক্ষায় নিবেদিত একমাত্র বিজ্ঞানসম্মত দৈনিক"
               : "Devoted to the Longevity of Millions of Batteries and Industrial Machinery Across Bangladesh"}
@@ -72,7 +85,7 @@ export function Navbar() {
           <div className="flex items-center justify-between gap-2 xl:gap-3">
             {/* Desktop Navigation Links (Strictly One-Liner with whitespace-nowrap) */}
             <nav className="hidden lg:flex items-center justify-center flex-1 gap-1.5 xl:gap-3 2xl:gap-4 text-xs xl:text-sm font-bold font-newspaper text-stone-800 whitespace-nowrap">
-              <a href="#" className="hover:text-accent hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0">
+              <a href={locale === "en" ? "/en" : "/"} className="hover:text-accent hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0">
                 {t.nav.home}
               </a>
               {navLinks.map((link) => (
@@ -105,7 +118,7 @@ export function Navbar() {
             {/* Mobile Nav Trigger */}
             <div className="flex lg:hidden items-center justify-between w-full">
               <span className="text-xs font-mono font-bold uppercase tracking-wider text-stone-800">
-                {locale === "bn" ? "সূচিপত্র / NAVIGATION" : "EDITION SECTIONS"}
+                {locale === "bn" ? "সূচিপত্র" : "EDITION SECTIONS"}
               </span>
               <div className="flex items-center gap-3">
                 <a
@@ -132,7 +145,7 @@ export function Navbar() {
           <div className="lg:hidden border-b-2 border-stone-900 bg-[#fdfbf7] p-4 my-2 animate-fadeIn">
             <nav className="flex flex-col divide-y divide-stone-200">
               <a
-                href="#"
+                href={locale === "en" ? "/en" : "/"}
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2.5 text-sm font-bold font-newspaper text-stone-900 flex justify-between items-center"
               >

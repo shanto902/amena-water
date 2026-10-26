@@ -35,7 +35,7 @@ export function Parameters() {
             >
               <div>
                 <span className="text-[10px] font-mono uppercase text-stone-500 font-bold block mb-1">
-                  PARAM CODE: {param.id.toUpperCase()}
+                  {locale === "bn" ? `প্যারামিটার কোড: ${param.id.toUpperCase()}` : `PARAM CODE: ${param.id.toUpperCase()}`}
                 </span>
                 <h3 className="text-base font-bold font-newspaper text-stone-900 mb-2">
                   {param.name}
@@ -64,7 +64,7 @@ export function Parameters() {
         <div className="newspaper-card p-6 sm:p-8 bg-[#fdfbf7] max-w-4xl mx-auto">
           <div className="text-center border-b-2 border-stone-900 pb-4 mb-6">
             <span className="text-xs font-mono uppercase tracking-widest text-stone-600 block">
-              OFFICIAL COMPARATIVE DISPATCH
+              {locale === "bn" ? "অফিসিয়াল তুলনামূলক ল্যাব রিপোর্ট" : "OFFICIAL COMPARATIVE DISPATCH"}
             </span>
             <h3 className="text-xl sm:text-2xl font-bold font-newspaper text-stone-900">
               {t.parameters.comparison.title}
@@ -82,7 +82,9 @@ export function Parameters() {
                   <ShieldAlert className="w-4 h-4 text-accent" />
                   {t.parameters.comparison.tapWater}
                 </span>
-                <span className="font-mono text-accent">~ 350+ ppm (EXTREME RISK)</span>
+                <span className="font-mono text-accent">
+                  {locale === "bn" ? "~ ৩৫০+ ppm (চরম ঝুঁকি)" : "~ 350+ ppm (EXTREME RISK)"}
+                </span>
               </div>
               <div className="w-full h-3 bg-stone-200 border border-stone-400 p-0.5">
                 <div className="h-full bg-accent w-[85%]" />
@@ -101,7 +103,9 @@ export function Parameters() {
                   <ShieldAlert className="w-4 h-4 text-amber-800" />
                   {t.parameters.comparison.marketWater}
                 </span>
-                <span className="font-mono text-amber-800">~ 35 - 80 ppm (UNRELIABLE)</span>
+                <span className="font-mono text-amber-800">
+                  {locale === "bn" ? "~ ৩৫ - ৮০ ppm (অনির্ভরযোগ্য)" : "~ 35 - 80 ppm (UNRELIABLE)"}
+                </span>
               </div>
               <div className="w-full h-3 bg-stone-200 border border-stone-400 p-0.5">
                 <div className="h-full bg-amber-800 w-[45%]" />
@@ -120,7 +124,9 @@ export function Parameters() {
                   <CheckCircle2 className="w-4 h-4 text-stone-900" />
                   {t.parameters.comparison.amenaWater}
                 </span>
-                <span className="font-mono text-stone-900 font-black">&lt; 1 ppm (100% PURIFIED)</span>
+                <span className="font-mono text-stone-900 font-black">
+                  {locale === "bn" ? "< ১ ppm (১০০% বিশুদ্ধ)" : "< 1 ppm (100% PURIFIED)"}
+                </span>
               </div>
               <div className="w-full h-4 bg-stone-200 border-2 border-stone-900 p-0.5">
                 <div className="h-full bg-stone-900 w-[2%] min-w-[10px]" />

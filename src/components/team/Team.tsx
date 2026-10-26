@@ -4,7 +4,7 @@ import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function Team() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
 
   return (
     <section id="team" className="py-12 sm:py-16 border-b-2 border-stone-900 bg-[#f4efe6]">
@@ -41,7 +41,7 @@ export function Team() {
                 </div>
 
                 <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold block mb-1">
-                  OFFICIAL EXECUTIVE
+                  {locale === "bn" ? "অফিসিয়াল নির্বাহী" : "OFFICIAL EXECUTIVE"}
                 </span>
 
                 <h3 className="text-xl font-bold font-newspaper text-stone-900 mb-1">
@@ -65,7 +65,7 @@ export function Team() {
 
               <div className="pt-3 border-t border-stone-300 text-center">
                 <span className="text-[10px] font-mono uppercase tracking-wider text-stone-600 block">
-                  amena™ TRUSTEE BOARD
+                  {locale === "bn" ? "আমেনা™ পরিচালনা পর্ষদ" : "amena™ TRUSTEE BOARD"}
                 </span>
               </div>
             </div>

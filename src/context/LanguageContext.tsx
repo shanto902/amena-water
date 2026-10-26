@@ -1,6 +1,7 @@
 "use client";
 
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import { Locale, TranslationSchema } from "@/types";
 import { translations } from "@/data/translations";
 
@@ -13,30 +14,51 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  // Default to Bangla ('bn') per requirement with safe client-side hydration check
-  const [locale, setLocaleState] = useState<Locale>(() => {
-    if (typeof window !== "undefined") {
-      try {
-        const saved = localStorage.getItem("amena_preferred_lang") as Locale;
-        if (saved === "bn" || saved === "en") {
-          return saved;
-        }
-      } catch {
-        // ignore
-      }
+export function LanguageProvider({
+  children,
+  initialLocale = "bn",
+}: {
+  children: React.ReactNode;
+  initialLocale?: Locale;
+}) {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Derive locale directly from the active URL path, falling back to initialLocale
+  const pathLocale: Locale = pathname?.startsWith("/en")
+    ? "en"
+    : pathname?.startsWith("/bn")
+    ? "bn"
+    : initialLocale;
+
+  const [localeOverride, setLocaleOverride] = useState<Locale | null>(null);
+
+  // If the path matches the override, reset override so URL is always single source of truth
+  const locale: Locale =
+    localeOverride && (pathname === `/${localeOverride}` || pathname === "/")
+      ? localeOverride
+      : pathLocale;
+
+  // Synchronize the external HTML lang tag with the resolved locale
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = locale;
     }
-    return "bn";
-  });
+  }, [locale]);
 
   const setLocale = (newLocale: Locale) => {
-    setLocaleState(newLocale);
+    setLocaleOverride(newLocale);
     try {
       localStorage.setItem("amena_preferred_lang", newLocale);
-      document.documentElement.lang = newLocale;
+      if (typeof document !== "undefined") {
+        document.documentElement.lang = newLocale;
+      }
     } catch {
       // ignore
     }
+
+    const hash = typeof window !== "undefined" ? window.location.hash : "";
+    router.push(`/${newLocale}${hash}`);
   };
 
   const toggleLocale = () => {
@@ -60,4 +82,3 @@ export function useLanguage() {
   }
   return context;
 }
-

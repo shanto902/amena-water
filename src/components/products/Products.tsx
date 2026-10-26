@@ -9,12 +9,8 @@ export function Products() {
   const { t, locale } = useLanguage();
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
 
-  const handleInquiry = (productName: string) => {
+  const handleInquiry = () => {
     const contactSection = document.getElementById("contact");
-    const productInput = document.getElementById("contact-product") as HTMLSelectElement | null;
-    if (productInput) {
-      productInput.value = productName;
-    }
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
     }
@@ -52,7 +48,7 @@ export function Products() {
                 {/* Header with Product Tag & Badge */}
                 <div className="flex items-start justify-between border-b border-stone-300 pb-3 mb-4">
                   <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-600">
-                    CAT. ITEM #{prod.id.toUpperCase()}
+                    {locale === "bn" ? `পণ্য কোড #${prod.id.toUpperCase()}` : `CAT. ITEM #${prod.id.toUpperCase()}`}
                   </span>
                   {prod.badge && (
                     <span className="retro-stamp text-[10px]">
@@ -109,9 +105,9 @@ export function Products() {
                   {t.products.viewSpecs}
                 </button>
                 <button
-                  onClick={() => handleInquiry(prod.name)}
+                  onClick={handleInquiry}
                   className="flex items-center justify-center p-2 bg-stone-900 text-[#f8f5ee] hover:bg-accent transition-colors shadow-[2px_2px_0px_#44403c]"
-                  title="অর্ডার অনুসন্ধান"
+                  title={locale === "bn" ? "অর্ডার অনুসন্ধান" : "Order Inquiry"}
                 >
                   <ArrowUpRight className="w-4 h-4 font-bold" />
                 </button>
@@ -127,7 +123,7 @@ export function Products() {
               <div className="flex items-start justify-between border-b-2 border-stone-900 pb-3 mb-4">
                 <div>
                   <span className="text-[10px] font-mono uppercase text-stone-600 tracking-wider">
-                    TECHNICAL DISPATCH SPEC SHEET
+                    {locale === "bn" ? "টেকনিক্যাল স্পেসিফিকেশন বিবরণী" : "TECHNICAL DISPATCH SPEC SHEET"}
                   </span>
                   <h3 className="text-xl font-bold font-newspaper text-stone-900">
                     {selectedProduct.name}
@@ -177,7 +173,7 @@ export function Products() {
               <div className="pt-4 border-t-2 border-stone-900 flex gap-3">
                 <button
                   onClick={() => {
-                    handleInquiry(selectedProduct.name);
+                    handleInquiry();
                     setSelectedProduct(null);
                   }}
                   className="w-full py-3 bg-stone-900 text-[#f8f5ee] font-mono font-bold text-xs uppercase hover:bg-accent transition-colors shadow-[3px_3px_0px_#44403c]"

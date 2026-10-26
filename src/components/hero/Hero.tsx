@@ -10,12 +10,6 @@ export function Hero() {
   return (
     <section className="relative py-8 sm:py-12 border-b-2 border-stone-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Front Page Kicker Banner */}
-        <div className="flex items-center justify-between border-b border-stone-400 pb-2 mb-6 text-xs font-mono tracking-widest uppercase text-stone-600">
-          <span>★ SPECIAL DISPATCH • FRONT PAGE ★</span>
-          <span>CERTIFIED LABORATORY REPORT</span>
-          <span className="hidden sm:inline">ISSUE 2026-BD</span>
-        </div>
 
         {/* Lead Headline in Classic Newspaper Type */}
         <div className="text-center max-w-5xl mx-auto mb-8">
@@ -76,17 +70,14 @@ export function Hero() {
           <div className="lg:col-span-5">
             <div className="newspaper-card p-6 bg-[#fdfbf7]">
               {/* Card Header with Stamp */}
-              <div className="flex items-start justify-between border-b-2 border-stone-900 pb-4 mb-4">
+              <div className="flex items-center justify-between border-b-2 border-stone-900 pb-4 mb-4">
                 <div>
-                  <span className="text-[10px] font-mono tracking-widest text-stone-600 uppercase block">
-                    BULLETIN NO. 7-NM
-                  </span>
                   <h2 className="text-xl font-bold font-newspaper text-stone-900">
                     {locale === "bn" ? "রাসায়নিক বিশুদ্ধতা সূচক" : "Chemical Purity Index"}
                   </h2>
                 </div>
                 <div className="retro-stamp text-[10px]">
-                  BUET PASS
+                  {locale === "bn" ? "বুয়েট পাস" : "BUET PASS"}
                 </div>
               </div>
 
@@ -96,7 +87,8 @@ export function Hero() {
                   {locale === "bn" ? "মোট দ্রবীভূত লবণ (TDS)" : "Total Dissolved Solids"}
                 </span>
                 <div className="text-5xl font-black font-newspaper text-stone-900 my-1">
-                  &lt; 1.0 <span className="text-xl font-normal font-mono text-stone-700">ppm</span>
+                  &lt; {locale === "bn" ? "১.০" : "1.0"}{" "}
+                  <span className="text-xl font-normal font-mono text-stone-700">ppm</span>
                 </div>
                 <span className="text-xs font-newspaper italic text-stone-600">
                   {locale === "bn" ? "বুয়েট রাসায়নিক ল্যাবরেটরিতে প্রমাণিত" : "Verified by BUET Chemical Labs"}
@@ -105,21 +97,37 @@ export function Hero() {
 
               {/* Ledger Table */}
               <div className="divide-y divide-stone-300 text-xs font-mono py-2">
-                <div className="py-2 flex justify-between">
-                  <span className="text-stone-600">CONDUCTIVITY:</span>
-                  <span className="font-bold text-stone-900">&lt; 1.0 μS/cm</span>
+                <div className="py-2.5 flex justify-between items-center">
+                  <span className="text-stone-600">
+                    {locale === "bn" ? "পরিবাহিতা (Conductivity):" : "CONDUCTIVITY:"}
+                  </span>
+                  <span className="font-bold text-stone-900 font-mono">
+                    {locale === "bn" ? "< ১.০ μS/cm" : "< 1.0 μS/cm"}
+                  </span>
                 </div>
-                <div className="py-2 flex justify-between">
-                  <span className="text-stone-600">PH LEVEL:</span>
-                  <span className="font-bold text-stone-900">6.8 - 7.0 (NEUTRAL)</span>
+                <div className="py-2.5 flex justify-between items-center">
+                  <span className="text-stone-600">
+                    {locale === "bn" ? "পিএইচ মান (pH Level):" : "PH LEVEL:"}
+                  </span>
+                  <span className="font-bold text-stone-900 font-mono">
+                    {locale === "bn" ? "৬.৮ - ৭.০ (নিরপেক্ষ)" : "6.8 - 7.0 (NEUTRAL)"}
+                  </span>
                 </div>
-                <div className="py-2 flex justify-between">
-                  <span className="text-stone-600">PURIFICATION:</span>
-                  <span className="font-bold text-stone-900">7-STAGE NUCLEAR MEDIA</span>
+                <div className="py-2.5 flex justify-between items-center">
+                  <span className="text-stone-600">
+                    {locale === "bn" ? "পরিশোধন প্রযুক্তি:" : "PURIFICATION:"}
+                  </span>
+                  <span className="font-bold text-stone-900">
+                    {locale === "bn" ? "৭ স্তরের নিউক্লিয়ার মিডিয়া" : "7-STAGE NUCLEAR MEDIA"}
+                  </span>
                 </div>
-                <div className="py-2 flex justify-between">
-                  <span className="text-stone-600">STERILIZATION:</span>
-                  <span className="font-bold text-stone-900">100% ULTRA-VIOLET (UV)</span>
+                <div className="py-2.5 flex justify-between items-center">
+                  <span className="text-stone-600">
+                    {locale === "bn" ? "জীবাণুমুক্তকরণ:" : "STERILIZATION:"}
+                  </span>
+                  <span className="font-bold text-stone-900">
+                    {locale === "bn" ? "১০০% আল্ট্রা-ভায়োলেট (UV)" : "100% ULTRA-VIOLET (UV)"}
+                  </span>
                 </div>
               </div>
 

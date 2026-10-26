@@ -369,9 +369,10 @@ export const translations: Record<"bn" | "en", TranslationSchema> = {
       ],
     },
     contact: {
-      tag: "যোগাযোগ ও ডিলারশিপ",
-      title: "আমাদের সাথে যোগাযোগ করুন",
-      subtitle: "খুচরা, পাইকারি বা ডিলারশিপ সংক্রান্ত যেকোনো প্রয়োজনে আমরা আপনার পাশে আছি",
+      tag: "সরাসরি ফোন অর্ডার ও কারখানা",
+      title: "অর্ডার ও অনুসন্ধানের জন্য সরাসরি ফোন করুন",
+      subtitle:
+        "অনলাইন ফর্মের বিলম্ব এড়াতে শুধুমাত্র সরাসরি ফোন কলের মাধ্যমেই আমরা সকল রিটেল অর্ডার, ডিলারশিপ ও কারিগরি সেবা পরিচালনা করি।",
       addressLabel: "কারখানা ও প্রধান কার্যালয়:",
       addressValue: "৬৬৯/৫ সরকারী গোরস্থান মোড়, শিক্ষকপল্লী, কিশোরগঞ্জ, ঢাকা - ২৩০০",
       phoneLabel: "জরুরি হেল্পলাইন ও অর্ডার:",
@@ -774,9 +775,10 @@ export const translations: Record<"bn" | "en", TranslationSchema> = {
       ],
     },
     contact: {
-      tag: "Get in Touch",
-      title: "Contact Us & Dealership Inquiries",
-      subtitle: "For retail purchases, bulk supply, or regional dealership partnerships, we are here to assist",
+      tag: "Phone Orders & Plant Location",
+      title: "Direct Telephone Orders & Factory Plant",
+      subtitle:
+        "Direct telephone call is our exclusive official channel for immediate orders, bulk shipments, and regional dealership partnerships.",
       addressLabel: "Head Office & Manufacturing Facility:",
       addressValue: "669/5 Shorkari Gorosthan more, ShikkhokPolli, Kishorgonj, Dhaka - 2300, Bangladesh",
       phoneLabel: "Helpline & Order Hotline:",

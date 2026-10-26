@@ -98,54 +98,16 @@ export function Footer() {
                 {t.footer.products}
               </h4>
               <ul className="space-y-1.5 text-xs font-newspaper text-stone-700">
-                <li>
-                  <a
-                    href="#products"
-                    className="hover:text-accent hover:underline"
-                  >
-                    amena DM Water
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#products"
-                    className="hover:text-accent hover:underline"
-                  >
-                    amena Battery Water
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#products"
-                    className="hover:text-accent hover:underline"
-                  >
-                    Battery Electrolyte
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#products"
-                    className="hover:text-accent hover:underline"
-                  >
-                    Engine Cooling Water
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#products"
-                    className="hover:text-accent hover:underline"
-                  >
-                    Rinsing Water
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#products"
-                    className="hover:text-accent hover:underline"
-                  >
-                    Natural Rose Water
-                  </a>
-                </li>
+                {t.products.items.map((prod) => (
+                  <li key={prod.id}>
+                    <a
+                      href="#products"
+                      className="hover:text-accent hover:underline"
+                    >
+                      {prod.name}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -187,7 +149,9 @@ export function Footer() {
           <div>{t.footer.copyright}</div>
           <div className="flex items-center gap-4">
             <span className="text-[11px] text-stone-500">
-              RETRO NEWSPAPER EDITION FOR AMENA.COM.BD
+              {locale === "bn"
+                ? "আমেনা ডিমিনারেলাইজড ওয়াটার • বিশেষ দৈনিক সংস্করণ"
+                : "RETRO NEWSPAPER EDITION FOR AMENA.COM.BD"}
             </span>
             <button
               onClick={scrollToTop}
@@ -195,7 +159,7 @@ export function Footer() {
               aria-label="Back to top"
             >
               <ArrowUp className="w-3 h-3" />
-              <span>TOP</span>
+              <span>{locale === "bn" ? "উপরে" : "TOP"}</span>
             </button>
           </div>
         </div>

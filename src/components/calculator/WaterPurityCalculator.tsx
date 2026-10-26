@@ -14,12 +14,14 @@ export function WaterPurityCalculator() {
 
   const waterData = {
     amena: {
-      tds: "< 1 ppm",
+      tds: "< ১ ppm",
+      tdsEn: "< 1 ppm",
       lifeFactor: "১০০% (পূর্ণ আয়ু)",
       lifeFactorEn: "100% (Maximum Full Life)",
       risk: "ঝুঁকিমুক্ত (Zero Risk)",
       riskEn: "Zero Risk (Safe)",
       stamp: "APPROVED & SAFE",
+      stampBn: "অনুমোদিত ও নিরাপদ",
       stampClass: "border-stone-900 text-stone-900 bg-white",
       icon: CheckCircle2,
       recommendation:
@@ -29,11 +31,13 @@ export function WaterPurityCalculator() {
     },
     market: {
       tds: "৪০ - ৮০ ppm",
+      tdsEn: "40 - 80 ppm",
       lifeFactor: "৫৫% - ৭০%",
       lifeFactorEn: "55% - 70%",
       risk: "মাঝারি ঝুঁকি (Moderate Risk)",
       riskEn: "Moderate Risk (Degradation)",
       stamp: "CAUTION ADVISED",
+      stampBn: "সতর্কতা আবশ্যক",
       stampClass: "border-amber-800 text-amber-800 bg-amber-50",
       icon: AlertTriangle,
       recommendation:
@@ -43,11 +47,13 @@ export function WaterPurityCalculator() {
     },
     tap: {
       tds: "৩৫০+ ppm",
+      tdsEn: "350+ ppm",
       lifeFactor: "২০% - ৩৫%",
       lifeFactorEn: "20% - 35%",
       risk: "চরম ক্ষতিকর (Critical Damage)",
       riskEn: "Critical Damage (Rapid Failure)",
       stamp: "HAZARDOUS",
+      stampBn: "চরম ঝুঁকিপূর্ণ",
       stampClass: "border-accent text-accent bg-accent-light",
       icon: XCircle,
       recommendation:
@@ -57,11 +63,13 @@ export function WaterPurityCalculator() {
     },
     boiled: {
       tds: "২৫০+ ppm",
+      tdsEn: "250+ ppm",
       lifeFactor: "২৫% - ৪০%",
       lifeFactorEn: "25% - 40%",
       risk: "উচ্চ ঝুঁকি (High Risk)",
       riskEn: "High Risk (Plate Crust)",
       stamp: "NOT SAFE",
+      stampBn: "নিরাপদ নয়",
       stampClass: "border-accent text-accent bg-accent-light",
       icon: XCircle,
       recommendation:
@@ -73,11 +81,38 @@ export function WaterPurityCalculator() {
 
   const current = waterData[waterType];
 
-  const appOptions: { id: ApplicationType; label: string }[] = [
-    { id: "rickshaw", label: "ইজিবাইক / অটোরিকশা" },
-    { id: "ips", label: "বাসার আইপিএস / ইউপিএস" },
-    { id: "car", label: "কার / বাস / ট্রাক" },
-    { id: "solar", label: "সৌর-বিদ্যুৎ সিস্টেম" },
+  const waterSources = [
+    {
+      id: "amena" as const,
+      labelBn: "✓ আমেনা ডি এম ওয়াটার (TDS < ১ ppm)",
+      labelEn: "✓ amena™ DM Water (TDS < 1 ppm)",
+      hasBuetPass: true,
+    },
+    {
+      id: "market" as const,
+      labelBn: "⚠ বাজারের সাধারণ 'ব্যাটারি পানি' (~ ৫০ ppm)",
+      labelEn: "⚠ Local Market 'Battery Water' (~ 50 ppm)",
+      hasBuetPass: false,
+    },
+    {
+      id: "tap" as const,
+      labelBn: "✗ টিউবওয়েল বা সাধারণ সাপ্লাই পানি (৩৫০+ ppm)",
+      labelEn: "✗ Tap / Ground Tube-well Water (350+ ppm)",
+      hasBuetPass: false,
+    },
+    {
+      id: "boiled" as const,
+      labelBn: "♨ ফুটানো সাধারণ পানি (২৫০+ ppm)",
+      labelEn: "♨ Boiled Domestic Water (250+ ppm)",
+      hasBuetPass: false,
+    },
+  ];
+
+  const appOptions: { id: ApplicationType; labelBn: string; labelEn: string }[] = [
+    { id: "rickshaw", labelBn: "ইজিবাইক / অটোরিকশা", labelEn: "Easybike / Auto-Rickshaw" },
+    { id: "ips", labelBn: "বাসার আইপিএস / ইউপিএস", labelEn: "Home IPS / UPS" },
+    { id: "car", labelBn: "কার / বাস / ট্রাক", labelEn: "Car / Bus / Heavy Truck" },
+    { id: "solar", labelBn: "সৌর-বিদ্যুৎ সিস্টেম", labelEn: "Solar Battery System" },
   ];
 
   return (
@@ -106,63 +141,34 @@ export function WaterPurityCalculator() {
             <div className="lg:col-span-6 space-y-6">
               <div>
                 <label className="text-xs font-mono font-bold uppercase text-stone-900 block mb-2.5">
-                  [১] {t.calculator.selectLabel}
+                  [{locale === "bn" ? "১" : "1"}] {t.calculator.selectLabel}
                 </label>
                 <div className="space-y-2">
-                  <button
-                    type="button"
-                    onClick={() => setWaterType("amena")}
-                    className={`w-full p-3 border text-left text-xs font-mono font-bold transition-all flex items-center justify-between ${
-                      waterType === "amena"
-                        ? "bg-stone-900 text-[#f8f5ee] border-stone-900 shadow-[2px_2px_0px_#44403c]"
-                        : "bg-[#f8f5ee] border-stone-300 text-stone-800 hover:border-stone-500"
-                    }`}
-                  >
-                    <span>✓ আমেনা ডি এম ওয়াটার (TDS &lt; 1 ppm)</span>
-                    <span className="text-[10px] bg-accent text-white px-1.5 py-0.5">BUET PASS</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setWaterType("market")}
-                    className={`w-full p-3 border text-left text-xs font-mono font-bold transition-all flex items-center justify-between ${
-                      waterType === "market"
-                        ? "bg-stone-900 text-[#f8f5ee] border-stone-900 shadow-[2px_2px_0px_#44403c]"
-                        : "bg-[#f8f5ee] border-stone-300 text-stone-800 hover:border-stone-500"
-                    }`}
-                  >
-                    <span>⚠ বাজারের সাধারণ &apos;ব্যাটারি পানি&apos; (~ ৫০ ppm)</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setWaterType("tap")}
-                    className={`w-full p-3 border text-left text-xs font-mono font-bold transition-all flex items-center justify-between ${
-                      waterType === "tap"
-                        ? "bg-stone-900 text-[#f8f5ee] border-stone-900 shadow-[2px_2px_0px_#44403c]"
-                        : "bg-[#f8f5ee] border-stone-300 text-stone-800 hover:border-stone-500"
-                    }`}
-                  >
-                    <span>✗ টিউবওয়েল বা সাধারণ সাপ্লাই পানি (৩৫০+ ppm)</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setWaterType("boiled")}
-                    className={`w-full p-3 border text-left text-xs font-mono font-bold transition-all flex items-center justify-between ${
-                      waterType === "boiled"
-                        ? "bg-stone-900 text-[#f8f5ee] border-stone-900 shadow-[2px_2px_0px_#44403c]"
-                        : "bg-[#f8f5ee] border-stone-300 text-stone-800 hover:border-stone-500"
-                    }`}
-                  >
-                    <span>♨ ফুটানো সাধারণ পানি (২৫০+ ppm)</span>
-                  </button>
+                  {waterSources.map((source) => (
+                    <button
+                      key={source.id}
+                      type="button"
+                      onClick={() => setWaterType(source.id)}
+                      className={`w-full p-3 border text-left text-xs font-mono font-bold transition-all flex items-center justify-between ${
+                        waterType === source.id
+                          ? "bg-stone-900 text-[#f8f5ee] border-stone-900 shadow-[2px_2px_0px_#44403c]"
+                          : "bg-[#f8f5ee] border-stone-300 text-stone-800 hover:border-stone-500"
+                      }`}
+                    >
+                      <span>{locale === "bn" ? source.labelBn : source.labelEn}</span>
+                      {source.hasBuetPass && (
+                        <span className="text-[10px] bg-accent text-white px-1.5 py-0.5 font-bold">
+                          {locale === "bn" ? "বুয়েট পাস" : "BUET PASS"}
+                        </span>
+                      )}
+                    </button>
+                  ))}
                 </div>
               </div>
 
               <div>
                 <label className="text-xs font-mono font-bold uppercase text-stone-900 block mb-2.5">
-                  [২] {t.calculator.batteryTypeLabel}
+                  [{locale === "bn" ? "২" : "2"}] {t.calculator.batteryTypeLabel}
                 </label>
                 <div className="grid grid-cols-2 gap-2">
                   {appOptions.map((app) => (
@@ -176,7 +182,7 @@ export function WaterPurityCalculator() {
                           : "bg-[#f8f5ee] border-stone-300 text-stone-700 hover:bg-stone-200"
                       }`}
                     >
-                      {app.label}
+                      {locale === "bn" ? app.labelBn : app.labelEn}
                     </button>
                   ))}
                 </div>
@@ -188,17 +194,19 @@ export function WaterPurityCalculator() {
               <div>
                 <div className="flex items-center justify-between border-b-2 border-stone-900 pb-3 mb-4">
                   <span className="text-xs font-mono font-bold uppercase text-stone-900">
-                    DIAGNOSTIC DISPATCH
+                    {locale === "bn" ? "ডায়াগনস্টিক রিপোর্ট" : "DIAGNOSTIC DISPATCH"}
                   </span>
                   <div className={`px-2 py-0.5 border-2 text-[10px] font-mono font-bold ${current.stampClass}`}>
-                    {current.stamp}
+                    {locale === "bn" ? current.stampBn : current.stamp}
                   </div>
                 </div>
 
                 <div className="space-y-3 font-mono text-xs">
                   <div className="flex justify-between py-1.5 border-b border-stone-300">
                     <span className="text-stone-600">{t.calculator.tdsLabel}</span>
-                    <span className="font-bold text-stone-900">{current.tds}</span>
+                    <span className="font-bold text-stone-900">
+                      {locale === "bn" ? current.tds : current.tdsEn}
+                    </span>
                   </div>
 
                   <div className="flex justify-between py-1.5 border-b border-stone-300">

@@ -8,13 +8,69 @@ export function About() {
   const { t, locale } = useLanguage();
 
   const stages = [
-    { num: "০১", name: "সেডিমেন্ট ফিল্ট্রেশন", eng: "Sediment", desc: "বালি ও ভারী কণা অপসারণ" },
-    { num: "০২", name: "অ্যাক্টিভেটেড কার্বন", eng: "Carbon", desc: "ক্লোরিন ও দুর্গন্ধ শোষণ" },
-    { num: "০৩", name: "রিভার্স অসমোসিস", eng: "RO System", desc: "৯৯% দ্রবীভূত লবণ দূরীকরণ" },
-    { num: "০৪", name: "ক্যাটায়ন আয়ন রেজিন", eng: "Cation Resin", desc: "ক্যালসিয়াম ও ম্যাগনেসিয়াম নিষ্কাশন" },
-    { num: "০৫", name: "অ্যানায়ন আয়ন রেজিন", eng: "Anion Resin", desc: "ক্ষতিকর অ্যানায়ন মুক্তকরণ" },
-    { num: "০৬", name: "নিউক্লিয়ার মিক্সড বেড", eng: "Nuclear Media", desc: "০-১ পিপিএম চরম বিশুদ্ধকরণ" },
-    { num: "০৭", name: "ইউ ভি স্টেরিলাইজার", eng: "UV Treatment", desc: "১০০% ব্যাকটেরিয়া ধ্বংস" },
+    {
+      numBn: "০১",
+      numEn: "01",
+      tag: "Sediment",
+      nameBn: "সেডিমেন্ট ফিল্ট্রেশন",
+      nameEn: "Sediment Filtration",
+      descBn: "বালি ও ভারী কণা অপসারণ",
+      descEn: "Removes sand, rust & heavy particles",
+    },
+    {
+      numBn: "০২",
+      numEn: "02",
+      tag: "Carbon",
+      nameBn: "অ্যাক্টিভেটেড কার্বন",
+      nameEn: "Activated Carbon",
+      descBn: "ক্লোরিন ও দুর্গন্ধ শোষণ",
+      descEn: "Adsorbs chlorine & unpleasant odors",
+    },
+    {
+      numBn: "০৩",
+      numEn: "03",
+      tag: "RO System",
+      nameBn: "রিভার্স অসমোসিস",
+      nameEn: "Reverse Osmosis",
+      descBn: "৯৯% দ্রবীভূত লবণ দূরীকরণ",
+      descEn: "Eliminates 99% of dissolved minerals",
+    },
+    {
+      numBn: "০৪",
+      numEn: "04",
+      tag: "Cation Resin",
+      nameBn: "ক্যাটায়ন আয়ন রেজিন",
+      nameEn: "Cation Resin",
+      descBn: "ক্যালসিয়াম ও ম্যাগনেসিয়াম নিষ্কাশন",
+      descEn: "Extracts calcium & magnesium ions",
+    },
+    {
+      numBn: "০৫",
+      numEn: "05",
+      tag: "Anion Resin",
+      nameBn: "অ্যানায়ন আয়ন রেজিন",
+      nameEn: "Anion Resin",
+      descBn: "ক্ষতিকর অ্যানায়ন মুক্তকরণ",
+      descEn: "Neutralizes harmful acid anions",
+    },
+    {
+      numBn: "০৬",
+      numEn: "06",
+      tag: "Nuclear Media",
+      nameBn: "নিউক্লিয়ার মিক্সড বেড",
+      nameEn: "Nuclear Mixed Bed",
+      descBn: "০-১ পিপিএম চরম বিশুদ্ধকরণ",
+      descEn: "Polishes water to 0–1 ppm purity",
+    },
+    {
+      numBn: "০৭",
+      numEn: "07",
+      tag: "UV Treatment",
+      nameBn: "ইউ ভি স্টেরিলাইজার",
+      nameEn: "UV Sterilizer",
+      descBn: "১০০% ব্যাকটেরিয়া ধ্বংস",
+      descEn: "Destroys 100% of biological bacteria",
+    },
   ];
 
   return (
@@ -41,8 +97,8 @@ export function About() {
           {/* Main Editorial Article */}
           <div className="lg:col-span-7 bg-[#fdfbf7] p-6 sm:p-8 newspaper-card">
             <div className="border-b border-stone-300 pb-3 mb-4 flex items-center justify-between text-xs font-mono text-stone-600">
-              <span>SPECIAL INVESTIGATION</span>
-              <span>READING TIME: 3 MIN</span>
+              <span>{locale === "bn" ? "বিশেষ প্রতিবেদন" : "SPECIAL INVESTIGATION"}</span>
+              <span>{locale === "bn" ? "পড়ার সময়: ৩ মিনিট" : "READING TIME: 3 MIN"}</span>
             </div>
 
             <p className="font-newspaper text-lg font-bold text-stone-900 leading-snug mb-4 border-l-4 border-accent pl-4 py-1">
@@ -65,7 +121,7 @@ export function About() {
                     {t.about.buetBadge}
                   </h3>
                   <span className="text-[10px] font-mono font-bold bg-stone-900 text-white px-2 py-0.5">
-                    VERIFIED
+                    {locale === "bn" ? "যাচাইকৃত" : "VERIFIED"}
                   </span>
                 </div>
                 <p className="text-xs font-newspaper text-stone-700 mt-1">
@@ -106,9 +162,6 @@ export function About() {
         {/* Seven Stages of Purification Ledger */}
         <div className="border-t-2 border-stone-900 pt-8">
           <div className="text-center max-w-2xl mx-auto mb-6">
-            <span className="text-xs font-mono font-bold uppercase text-stone-600 block">
-              ENGINEERING SCHEMATIC
-            </span>
             <h3 className="text-2xl font-bold font-newspaper text-stone-900">
               {t.about.stagesTitle}
             </h3>
@@ -124,15 +177,15 @@ export function About() {
                 className="newspaper-card-flat p-3 bg-[#fdfbf7] flex flex-col justify-between text-center"
               >
                 <div className="border-b border-stone-300 pb-1 mb-2 flex items-center justify-between text-xs font-mono font-bold">
-                  <span className="text-accent">{stg.num}</span>
-                  <span className="text-[10px] text-stone-500 uppercase">{stg.eng}</span>
+                  <span className="text-accent">{locale === "bn" ? stg.numBn : stg.numEn}</span>
+                  <span className="text-[10px] text-stone-500 uppercase">{stg.tag}</span>
                 </div>
                 <div>
                   <h4 className="text-xs font-bold font-newspaper text-stone-900 mb-1 leading-tight">
-                    {stg.name}
+                    {locale === "bn" ? stg.nameBn : stg.nameEn}
                   </h4>
                   <p className="text-[11px] font-newspaper text-stone-600">
-                    {stg.desc}
+                    {locale === "bn" ? stg.descBn : stg.descEn}
                   </p>
                 </div>
               </div>
