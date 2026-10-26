@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Locale } from "@/types";
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return getSeoMetadata(locale as Locale, `/${locale}`);
 }
 
-export default async function LocalePage({ params }: Props) {
+async function LocaleContent({ params }: Props) {
   const { locale } = await params;
   if (locale !== "bn" && locale !== "en") {
     notFound();
@@ -31,5 +32,13 @@ export default async function LocalePage({ params }: Props) {
   const jsonLd = getJsonLd(validLocale, currentUrl);
 
   return <HomeView initialLocale={validLocale} jsonLd={jsonLd} />;
+}
+
+export default function LocalePage({ params }: Props) {
+  return (
+    <Suspense fallback={<HomeView initialLocale="bn" jsonLd={getJsonLd("bn", `${BASE_URL}/bn`)} />}>
+      <LocaleContent params={params} />
+    </Suspense>
+  );
 }
 

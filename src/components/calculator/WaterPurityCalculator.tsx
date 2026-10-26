@@ -149,15 +149,15 @@ export function WaterPurityCalculator() {
                       key={source.id}
                       type="button"
                       onClick={() => setWaterType(source.id)}
-                      className={`w-full p-3 border text-left text-xs font-mono font-bold transition-all flex items-center justify-between ${
+                      className={`w-full p-2.5 sm:p-3 border text-left text-xs font-mono font-bold transition-all flex items-center justify-between gap-2 ${
                         waterType === source.id
                           ? "bg-stone-900 text-[#f8f5ee] border-stone-900 shadow-[2px_2px_0px_#44403c]"
                           : "bg-[#f8f5ee] border-stone-300 text-stone-800 hover:border-stone-500"
                       }`}
                     >
-                      <span>{locale === "bn" ? source.labelBn : source.labelEn}</span>
+                      <span className="leading-snug">{locale === "bn" ? source.labelBn : source.labelEn}</span>
                       {source.hasBuetPass && (
-                        <span className="text-[10px] bg-accent text-white px-1.5 py-0.5 font-bold">
+                        <span className="shrink-0 text-[10px] bg-accent text-white px-1.5 py-0.5 font-bold">
                           {locale === "bn" ? "বুয়েট পাস" : "BUET PASS"}
                         </span>
                       )}

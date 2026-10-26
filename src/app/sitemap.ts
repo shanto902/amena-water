@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { id: "battery-guide", priority: 0.8, changeFrequency: "monthly" as const },
     { id: "calculator", priority: 0.7, changeFrequency: "monthly" as const },
     { id: "team", priority: 0.6, changeFrequency: "yearly" as const },
+    { id: "gallery", priority: 0.7, changeFrequency: "monthly" as const },
     { id: "faq", priority: 0.7, changeFrequency: "monthly" as const },
     { id: "contact", priority: 0.9, changeFrequency: "weekly" as const },
   ];

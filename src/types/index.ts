@@ -52,6 +52,16 @@ export interface BatteryPart {
   description: string;
 }
 
+export interface GalleryItem {
+  id: string;
+  image: string;
+  title: string;
+  caption: string;
+  date?: string;
+  category: "ceremony" | "plant" | "packaging" | "fleet";
+  categoryLabel: string;
+}
+
 export interface TranslationSchema {
   nav: {
     home: string;
@@ -61,6 +71,7 @@ export interface TranslationSchema {
     batteryGuide: string;
     calculator: string;
     team: string;
+    gallery: string;
     faq: string;
     contact: string;
     callNow: string;
@@ -159,6 +170,19 @@ export interface TranslationSchema {
     title: string;
     subtitle: string;
     members: TeamMember[];
+  };
+  gallery: {
+    tag: string;
+    title: string;
+    subtitle: string;
+    viewLarger: string;
+    close: string;
+    filterAll: string;
+    filterPlant: string;
+    filterCeremony: string;
+    filterPackaging: string;
+    filterFleet: string;
+    items: GalleryItem[];
   };
   faq: {
     tag: string;

@@ -28,11 +28,11 @@ export function BatteryGuide() {
         </div>
 
         {/* Retro Tab Switcher */}
-        <div className="flex justify-center mb-8">
-          <div className="inline-flex border-2 border-stone-900 bg-[#fdfbf7] p-1 shadow-[3px_3px_0px_#1c1917]">
+        <div className="flex justify-center mb-8 px-2">
+          <div className="flex flex-col sm:flex-row w-full sm:w-auto border-2 border-stone-900 bg-[#fdfbf7] p-1 shadow-[3px_3px_0px_#1c1917] gap-1 sm:gap-0">
             <button
               onClick={() => setActiveTab("formula")}
-              className={`px-4 py-2 text-xs sm:text-sm font-mono font-bold transition-colors ${
+              className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-mono font-bold transition-colors text-center ${
                 activeTab === "formula"
                   ? "bg-stone-900 text-[#f8f5ee]"
                   : "text-stone-800 hover:bg-stone-200"
@@ -42,7 +42,7 @@ export function BatteryGuide() {
             </button>
             <button
               onClick={() => setActiveTab("parts")}
-              className={`px-4 py-2 text-xs sm:text-sm font-mono font-bold transition-colors ${
+              className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-mono font-bold transition-colors text-center ${
                 activeTab === "parts"
                   ? "bg-stone-900 text-[#f8f5ee]"
                   : "text-stone-800 hover:bg-stone-200"
@@ -52,7 +52,7 @@ export function BatteryGuide() {
             </button>
             <button
               onClick={() => setActiveTab("radiator")}
-              className={`px-4 py-2 text-xs sm:text-sm font-mono font-bold transition-colors ${
+              className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-mono font-bold transition-colors text-center ${
                 activeTab === "radiator"
                   ? "bg-stone-900 text-[#f8f5ee]"
                   : "text-stone-800 hover:bg-stone-200"
@@ -67,12 +67,12 @@ export function BatteryGuide() {
         {activeTab === "formula" && (
           <div className="space-y-6 max-w-4xl mx-auto animate-fadeIn">
             {/* Chemical Formula Card */}
-            <div className="newspaper-card p-6 sm:p-8 bg-[#fdfbf7] text-center">
+            <div className="newspaper-card p-5 sm:p-8 bg-[#fdfbf7] text-center">
               <span className="text-[10px] font-mono tracking-widest text-stone-600 uppercase block mb-2">
                 {locale === "bn" ? "তড়িৎ-রাসায়নিক উভমুখী বিক্রিয়া" : "ELECTROCHEMICAL REVERSIBLE EQUATION"}
               </span>
-              <div className="inline-block p-4 sm:p-6 border-2 border-stone-900 bg-[#f8f5ee] my-3 shadow-[2px_2px_0px_#1c1917]">
-                <code className="text-xl sm:text-3xl font-mono font-black text-stone-900 tracking-wider">
+              <div className="inline-block p-3 sm:p-6 border-2 border-stone-900 bg-[#f8f5ee] my-3 shadow-[2px_2px_0px_#1c1917] max-w-full overflow-x-auto">
+                <code className="text-base sm:text-2xl md:text-3xl font-mono font-black text-stone-900 tracking-wide block whitespace-nowrap">
                   {t.batteryGuide.chemicalFormula}
                 </code>
               </div>

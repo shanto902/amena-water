@@ -19,9 +19,14 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 items-start">
             {/* Masthead & Mission */}
             <div className="lg:col-span-5 space-y-3">
-              <span className="text-3xl sm:text-4xl font-black font-newspaper text-stone-900 tracking-tight block">
-                amena<span className="text-accent text-xl align-super">™</span>
-              </span>
+              <div className="inline-flex items-center leading-none">
+                <span className="text-3xl sm:text-4xl font-black font-newspaper text-stone-900 tracking-tight leading-none">
+                  amena
+                </span>
+                <span className="text-accent text-xs sm:text-sm font-bold font-sans self-start ml-0.5 -mt-0.5 tracking-normal">
+                  ™
+                </span>
+              </div>
               <span className="text-xs font-mono font-bold uppercase tracking-wider text-stone-600 block">
                 {locale === "bn"
                   ? "ডিমিনারেলাইজড ওয়াটার সলিউশন"
@@ -82,6 +87,16 @@ export function Footer() {
                     className="hover:text-accent hover:underline"
                   >
                     {t.nav.calculator}
+                  </a>
+                </li>
+                <li>
+                  <a href="#team" className="hover:text-accent hover:underline">
+                    {t.nav.team}
+                  </a>
+                </li>
+                <li>
+                  <a href="#gallery" className="hover:text-accent hover:underline">
+                    {t.nav.gallery}
                   </a>
                 </li>
                 <li>

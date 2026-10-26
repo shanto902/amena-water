@@ -91,36 +91,36 @@ body {
 
 /* Amena Truck Banner Chevron Bars (===> amena <===) */
 .amena-banner-left {
-  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%);
-  -webkit-clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%);
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 50%, calc(100% - 6px) 100%, 0 100%);
+  -webkit-clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 50%, calc(100% - 6px) 100%, 0 100%);
 }
 
 .amena-banner-right {
-  clip-path: polygon(8px 0, 100% 0, 100% 100%, 8px 100%, 0 50%);
-  -webkit-clip-path: polygon(8px 0, 100% 0, 100% 100%, 8px 100%, 0 50%);
+  clip-path: polygon(6px 0, 100% 0, 100% 100%, 6px 100%, 0 50%);
+  -webkit-clip-path: polygon(6px 0, 100% 0, 100% 100%, 6px 100%, 0 50%);
 }
 
 @media (min-width: 640px) {
   .amena-banner-left {
-    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%);
-    -webkit-clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%);
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%);
+    -webkit-clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%);
   }
 
   .amena-banner-right {
-    clip-path: polygon(14px 0, 100% 0, 100% 100%, 14px 100%, 0 50%);
-    -webkit-clip-path: polygon(14px 0, 100% 0, 100% 100%, 14px 100%, 0 50%);
+    clip-path: polygon(12px 0, 100% 0, 100% 100%, 12px 100%, 0 50%);
+    -webkit-clip-path: polygon(12px 0, 100% 0, 100% 100%, 12px 100%, 0 50%);
   }
 }
 
 @media (min-width: 1024px) {
   .amena-banner-left {
-    clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%);
-    -webkit-clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%);
+    clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%);
+    -webkit-clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%);
   }
 
   .amena-banner-right {
-    clip-path: polygon(18px 0, 100% 0, 100% 100%, 18px 100%, 0 50%);
-    -webkit-clip-path: polygon(18px 0, 100% 0, 100% 100%, 18px 100%, 0 50%);
+    clip-path: polygon(16px 0, 100% 0, 100% 100%, 16px 100%, 0 50%);
+    -webkit-clip-path: polygon(16px 0, 100% 0, 100% 100%, 16px 100%, 0 50%);
   }
 }
 

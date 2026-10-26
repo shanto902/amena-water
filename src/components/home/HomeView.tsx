@@ -11,6 +11,7 @@ import { Parameters } from "@/components/parameters/Parameters";
 import { BatteryGuide } from "@/components/battery-guide/BatteryGuide";
 import { WaterPurityCalculator } from "@/components/calculator/WaterPurityCalculator";
 import { Team } from "@/components/team/Team";
+import { Gallery } from "@/components/gallery/Gallery";
 import { Faq } from "@/components/faq/Faq";
 import { Contact } from "@/components/contact/Contact";
 import { Footer } from "@/components/footer/Footer";
@@ -41,6 +42,7 @@ export function HomeView({
           <BatteryGuide />
           <WaterPurityCalculator />
           <Team />
+          <Gallery />
           <Faq />
           <Contact />
         </main>

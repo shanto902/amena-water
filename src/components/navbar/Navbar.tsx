@@ -15,6 +15,7 @@ export function Navbar() {
     { href: "#battery-guide", label: t.nav.batteryGuide },
     { href: "#calculator", label: t.nav.calculator },
     { href: "#team", label: t.nav.team },
+    { href: "#gallery", label: t.nav.gallery },
     { href: "#faq", label: t.nav.faq },
     { href: "#contact", label: t.nav.contact },
   ];
@@ -23,60 +24,73 @@ export function Navbar() {
     <header className="w-full bg-[#f8f5ee] text-stone-900 pt-3">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Dateline / Vintage Header Bar */}
-        <div className="flex flex-wrap items-center justify-between border-b border-stone-400 pb-2 text-[11px] font-mono tracking-wider uppercase text-stone-700">
-          <div>
-            <span>📍 কিশোরগঞ্জ, বাংলাদেশ • KISHORGANJ, BD</span>
+        <div className="flex items-center justify-between border-b border-stone-400 pb-2 text-[10px] sm:text-[11px] font-mono tracking-wider uppercase text-stone-700 gap-2">
+          <div className="flex items-center gap-1.5 truncate">
+            <span className="shrink-0">📍</span>
+            <span className="hidden sm:inline truncate">
+              {locale === "bn" ? "কিশোরগঞ্জ, বাংলাদেশ • KISHORGANJ, BD" : "KISHORGANJ, BANGLADESH"}
+            </span>
+            <span className="sm:hidden truncate font-semibold">
+              {locale === "bn" ? "কিশোরগঞ্জ, বাংলাদেশ" : "KISHORGANJ, BD"}
+            </span>
           </div>
-          <div className="hidden sm:block font-bold text-stone-900">
+
+          <div className="hidden lg:block font-bold text-stone-900 truncate px-2 text-center flex-1">
             {locale === "bn"
               ? "জাতীয় শিল্প ও ব্যাটারি প্রযুক্তি সমাচার • বিশেষ সংস্করণ"
               : "THE NATIONAL INDUSTRIAL & BATTERY WATER GAZETTE"}
           </div>
-          <div className="flex items-center gap-3">
-            <span>VOL. XXVI NO. 102</span>
-            <span>•</span>
+
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <span className="hidden sm:inline">VOL. XXVI NO. 102</span>
+            <span className="hidden sm:inline">•</span>
             <a
               href={locale === "bn" ? "/en" : "/bn"}
               onClick={(e) => {
                 e.preventDefault();
                 toggleLocale();
               }}
-              className="px-2 py-0.5 border border-stone-800 bg-[#fdfbf7] text-stone-900 font-bold hover:bg-stone-900 hover:text-[#f8f5ee] transition-colors flex items-center gap-1 shadow-[1px_1px_0px_#1c1917]"
+              className="px-2 py-0.5 border border-stone-800 bg-[#fdfbf7] text-stone-900 font-bold hover:bg-stone-900 hover:text-[#f8f5ee] transition-colors flex items-center gap-1 shadow-[1px_1px_0px_#1c1917] text-[10px] sm:text-xs"
               title={locale === "bn" ? "Switch to English (/en)" : "বাংলায় দেখুন (/bn)"}
             >
-              <Globe className="w-3 h-3" />
+              <Globe className="w-3 h-3 shrink-0" />
               <span>{t.nav.switchLang}</span>
             </a>
           </div>
         </div>
 
         {/* Main Newspaper Masthead (===> amena™ <=== Full Margin Banner) */}
-        <div className="py-6 sm:py-8 text-center border-b border-stone-400">
-          <div className="flex items-center justify-between gap-2.5 sm:gap-4 md:gap-6 lg:gap-8 w-full">
+        <div className="py-3 sm:py-6 md:py-8 text-center border-b border-stone-400">
+          <div className="flex items-center justify-between gap-2 sm:gap-4 md:gap-6 lg:gap-8 w-full">
             {/* Left Chevron Band ===> (Expands to Left Margin) */}
             <div
-              className="h-4 sm:h-6 md:h-8 lg:h-10 flex-1 bg-accent amena-banner-left"
+              className="h-3.5 sm:h-5 md:h-7 lg:h-9 flex-1 bg-accent amena-banner-left self-center"
               aria-hidden="true"
             />
 
             {/* Brand Title */}
-            <a href={locale === "en" ? "/en" : "/"} className="inline-block group shrink-0">
-              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight font-newspaper text-stone-900 leading-none">
-                amena<span className="text-accent text-2xl sm:text-4xl md:text-5xl align-super ml-0.5">™</span>
-              </h1>
+            <a href={locale === "en" ? "/en" : "/"} className="inline-flex items-center group shrink-0">
+              <div className="inline-flex items-center leading-none">
+                <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight font-newspaper text-stone-900 leading-none">
+                  amena
+                </span>
+                <span className="text-accent text-[9px] sm:text-xs md:text-sm lg:text-base font-bold font-sans self-start ml-0.5 -mt-0.5 sm:-mt-1 tracking-normal">
+                  ™
+                </span>
+              </div>
             </a>
 
             {/* Right Chevron Band <=== (Expands to Right Margin) */}
             <div
-              className="h-4 sm:h-6 md:h-8 lg:h-10 flex-1 bg-accent amena-banner-right"
+              className="h-3.5 sm:h-5 md:h-7 lg:h-9 flex-1 bg-accent amena-banner-right self-center"
               aria-hidden="true"
             />
           </div>
 
-          <p className="mt-3 text-xs sm:text-sm font-newspaper italic text-stone-700 max-w-xl mx-auto px-4">
+          <p className="mt-2 sm:mt-3 text-[11px] sm:text-xs md:text-sm font-newspaper italic text-stone-700 max-w-xl mx-auto px-2 sm:px-4 leading-normal">
             {locale === "bn"
-              ? "দেশের কোটি কোটি ব্যাটারি ও শিল্পযন্ত্রের আয়ু রক্ষায় নিবেদিত একমাত্র বিজ্ঞানসম্মত দৈনিক"
-              : "Devoted to the Longevity of Millions of Batteries and Industrial Machinery Across Bangladesh"}
+              ? "আমরা উন্নত মানের ডি এম ওয়াটার প্রস্তুত করি"
+              : "We Produce Premium-Quality Demineralized Water"}
           </p>
         </div>
 

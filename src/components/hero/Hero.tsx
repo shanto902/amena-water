@@ -12,17 +12,17 @@ export function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Lead Headline in Classic Newspaper Type */}
-        <div className="text-center max-w-5xl mx-auto mb-8">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-newspaper text-stone-900 leading-[1.1] tracking-tight mb-4">
+        <div className="text-center max-w-5xl mx-auto mb-6 sm:mb-8">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-newspaper text-stone-900 leading-[1.15] sm:leading-[1.1] tracking-tight mb-2.5 sm:mb-4">
             {t.hero.titleLine1}
           </h1>
-          <p className="text-xl sm:text-2xl lg:text-3xl font-newspaper italic text-stone-800 font-semibold max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl md:text-2xl lg:text-3xl font-newspaper italic text-stone-800 font-semibold max-w-3xl mx-auto">
             &ldquo;{t.hero.titleLine2}&rdquo;
           </p>
         </div>
 
         {/* Two-Column Newspaper Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start border-t border-b border-stone-400 py-8 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start border-t border-b border-stone-400 py-6 sm:py-8 mb-8">
           {/* Main Story Column with Drop Cap */}
           <div className="lg:col-span-7 pr-0 lg:pr-8 lg:border-r border-stone-400">
             <div className="flex items-center gap-2 mb-4">
@@ -47,10 +47,10 @@ export function Hero() {
             </div>
 
             {/* Vintage CTA Actions */}
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <a
                 href="#products"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-stone-900 text-[#f8f5ee] text-xs sm:text-sm font-mono font-bold hover:bg-accent transition-colors shadow-[3px_3px_0px_#44403c]"
+                className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 bg-stone-900 text-[#f8f5ee] text-xs sm:text-sm font-mono font-bold hover:bg-accent transition-colors shadow-[3px_3px_0px_#44403c]"
               >
                 <span>{t.hero.primaryCta}</span>
                 <ArrowRight className="w-4 h-4" />
@@ -58,7 +58,7 @@ export function Hero() {
 
               <a
                 href="#battery-guide"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#fdfbf7] text-stone-900 border border-stone-800 text-xs sm:text-sm font-mono font-bold hover:bg-stone-200 transition-colors shadow-[3px_3px_0px_#1c1917]"
+                className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 bg-[#fdfbf7] text-stone-900 border border-stone-800 text-xs sm:text-sm font-mono font-bold hover:bg-stone-200 transition-colors shadow-[3px_3px_0px_#1c1917]"
               >
                 <BookOpen className="w-4 h-4" />
                 <span>{t.hero.secondaryCta}</span>
@@ -97,35 +97,35 @@ export function Hero() {
 
               {/* Ledger Table */}
               <div className="divide-y divide-stone-300 text-xs font-mono py-2">
-                <div className="py-2.5 flex justify-between items-center">
+                <div className="py-2.5 flex justify-between items-center gap-2">
                   <span className="text-stone-600">
                     {locale === "bn" ? "পরিবাহিতা (Conductivity):" : "CONDUCTIVITY:"}
                   </span>
-                  <span className="font-bold text-stone-900 font-mono">
+                  <span className="font-bold text-stone-900 font-mono text-right">
                     {locale === "bn" ? "< ১.০ μS/cm" : "< 1.0 μS/cm"}
                   </span>
                 </div>
-                <div className="py-2.5 flex justify-between items-center">
+                <div className="py-2.5 flex justify-between items-center gap-2">
                   <span className="text-stone-600">
                     {locale === "bn" ? "পিএইচ মান (pH Level):" : "PH LEVEL:"}
                   </span>
-                  <span className="font-bold text-stone-900 font-mono">
+                  <span className="font-bold text-stone-900 font-mono text-right">
                     {locale === "bn" ? "৬.৮ - ৭.০ (নিরপেক্ষ)" : "6.8 - 7.0 (NEUTRAL)"}
                   </span>
                 </div>
-                <div className="py-2.5 flex justify-between items-center">
+                <div className="py-2.5 flex justify-between items-center gap-2">
                   <span className="text-stone-600">
                     {locale === "bn" ? "পরিশোধন প্রযুক্তি:" : "PURIFICATION:"}
                   </span>
-                  <span className="font-bold text-stone-900">
+                  <span className="font-bold text-stone-900 text-right">
                     {locale === "bn" ? "৭ স্তরের নিউক্লিয়ার মিডিয়া" : "7-STAGE NUCLEAR MEDIA"}
                   </span>
                 </div>
-                <div className="py-2.5 flex justify-between items-center">
+                <div className="py-2.5 flex justify-between items-center gap-2">
                   <span className="text-stone-600">
                     {locale === "bn" ? "জীবাণুমুক্তকরণ:" : "STERILIZATION:"}
                   </span>
-                  <span className="font-bold text-stone-900">
+                  <span className="font-bold text-stone-900 text-right">
                     {locale === "bn" ? "১০০% আল্ট্রা-ভায়োলেট (UV)" : "100% ULTRA-VIOLET (UV)"}
                   </span>
                 </div>
