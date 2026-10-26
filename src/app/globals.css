@@ -1,26 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&display=swap");
 @import "tailwindcss";
 
+@theme {
+  --color-accent: #102173;
+  --color-accent-hover: #222e66;
+  --color-accent-dark: #0f142e;
+  --color-accent-light: #eef1f8;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-newsprint: #f8f5ee;
+  --bg-card: #fdfbf7;
+  --ink-primary: #1c1917;
+  --ink-secondary: #44403c;
+  --ink-muted: #78716c;
+  --accent: #102173;
+  --accent-hover: #222e66;
+  --accent-light: #eef1f8;
+  --border-ink: #292524;
+  --border-light: #d6d3d1;
+  --font-serif: "Playfair Display", "Noto Serif Bengali", Georgia, serif;
+  --font-bangla-serif: "Noto Serif Bengali", "Hind Siliguri", Georgia, serif;
+  --font-mono: "Courier Prime", monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-newsprint);
+  color: var(--ink-primary);
+  font-family: var(--font-bangla-serif);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  background-color: #f8f5ee;
+  color: #1c1917;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(#292524 0.45px, transparent 0.45px),
+    radial-gradient(#292524 0.45px, #f8f5ee 0.45px);
+  background-size: 18px 18px;
+  background-position:
+    0 0,
+    9px 9px;
+  background-attachment: fixed;
+}
+
+/* Retro Newspaper Borders & Styling */
+.newspaper-card {
+  background-color: #fdfbf7;
+  border: 1px solid #292524;
+  box-shadow: 4px 4px 0px #1c1917;
+  transition: all 0.2s ease-in-out;
+}
+
+.newspaper-card:hover {
+  box-shadow: 6px 6px 0px #1c1917;
+  transform: translate(-2px, -2px);
+}
+
+.newspaper-card-flat {
+  background-color: #fdfbf7;
+  border: 1px solid #292524;
+}
+
+.double-rule-top {
+  border-top: 3px double #1c1917;
+}
+
+.double-rule-bottom {
+  border-bottom: 3px double #1c1917;
+}
+
+.double-rule-y {
+  border-top: 4px double #1c1917;
+  border-bottom: 4px double #1c1917;
+}
+
+/* Retro Stamp */
+.retro-stamp {
+  display: inline-block;
+  padding: 4px 10px;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  border: 2px dashed #102173;
+  color: #102173;
+  transform: rotate(-1.5deg);
+}
+
+/* Drop Cap for Leading Editorial */
+.drop-cap::first-letter {
+  float: left;
+  font-family: "Playfair Display", "Noto Serif Bengali", Georgia, serif;
+  font-size: 3.4em;
+  line-height: 0.8;
+  font-weight: 800;
+  padding-right: 0.12em;
+  padding-top: 0.05em;
+  color: #1c1917;
+}
+
+/* Font Family Helper Classes */
+.font-newspaper {
+  font-family: var(--font-serif);
+}
+
+.font-typewriter {
+  font-family: var(--font-mono);
 }
